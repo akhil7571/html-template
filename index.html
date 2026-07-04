@@ -388,27 +388,68 @@ s0.parentNode.insertBefore(s1,s0);
               </div>
             </div>
           </div>
-          <div class="contact-form glass reveal">
-            <div class="form-row">
-              <div class="form-group">
-                <label class="form-label">Your Name</label>
-                <input type="text" class="form-input" id="fname" />
-              </div>
-              <div class="form-group">
-                <label class="form-label">Email Address</label>
-                <input type="email" class="form-input" id="femail" />
-              </div>
-            </div>
-            <div class="form-group">
-              <label class="form-label">Subject</label>
-              <input type="text" class="form-input" id="fsubject" />
-            </div>
-            <div class="form-group">
-              <label class="form-label">Message</label>
-              <textarea class="form-textarea" placeholder="Tell me about your project or opportunity..." id="fmessage"></textarea>
-            </div>
-            <button class="form-submit" onclick="handleSubmit()">🚀 Send Message</button>
-          </div>
+         <form name="contact"
+      method="POST"
+      data-netlify="true"
+      netlify-honeypot="bot-field"
+      class="contact-form glass reveal">
+
+    <!-- Required Hidden Field -->
+    <input type="hidden" name="form-name" value="contact">
+
+    <!-- Spam Protection -->
+    <p hidden>
+        <label>
+            Don't fill this out:
+            <input name="bot-field">
+        </label>
+    </p>
+
+    <div class="form-row">
+
+        <div class="form-group">
+            <label class="form-label">Your Name</label>
+            <input type="text"
+                   class="form-input"
+                   name="name"
+                   placeholder="Enter your name"
+                   required>
+        </div>
+
+        <div class="form-group">
+            <label class="form-label">Email Address</label>
+            <input type="email"
+                   class="form-input"
+                   name="email"
+                   placeholder="Enter your email"
+                   required>
+        </div>
+
+    </div>
+
+    <div class="form-group">
+        <label class="form-label">Subject</label>
+        <input type="text"
+               class="form-input"
+               name="subject"
+               placeholder="Subject"
+               required>
+    </div>
+
+    <div class="form-group">
+        <label class="form-label">Message</label>
+        <textarea class="form-textarea"
+                  name="message"
+                  rows="6"
+                  placeholder="Tell me about your project..."
+                  required></textarea>
+    </div>
+
+    <button type="submit" class="form-submit">
+        🚀 Send Message
+    </button>
+
+</form>
         </div>
       </div>
     </section>
